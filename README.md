@@ -1,7 +1,7 @@
 puppet-nova
 ===
 
-This repository contains fix when installing Packstack with Ironicf for OpenStack Ocata release (otherwise it shouldn't be used). There are only few changes in `manifests/scheduler/filter.pp` file - removal of anything that depends on `$scheduler_host_manager` since it is duplicated in official repository and Packstack installation fails.
+This repository contains fix when installing Packstack with Ironic for OpenStack Ocata release (otherwise it shouldn't be used). There are only few changes in `manifests/scheduler/filter.pp` file - removal of anything that depends on `$scheduler_host_manager` since it is duplicated in official repository and Packstack installation fails.
 
 Development and general information
 -----------------------------------
