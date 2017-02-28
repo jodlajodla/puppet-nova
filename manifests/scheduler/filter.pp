@@ -4,11 +4,6 @@
 #
 # === Parameters:
 #
-# [*scheduler_host_manager*]
-#   (optional) The scheduler host manager class to use. Should be either
-#   'host_manager' or 'ironic_host_manager'
-#   Defaults to 'host_manager'
-#
 # [*scheduler_max_attempts*]
 #   (optional) Maximum number of attempts to schedule an instance
 #   Defaults to '3'
@@ -114,7 +109,6 @@
 #   Defaults to undef
 #
 class nova::scheduler::filter (
-  $scheduler_host_manager                         = 'host_manager',
   $scheduler_max_attempts                         = '3',
   $scheduler_host_subset_size                     = '1',
   $max_io_ops_per_host                            = '8',
@@ -199,7 +193,6 @@ class nova::scheduler::filter (
 
   # TODO(aschultz): these should probably be in nova::scheduler ...
   nova_config {
-    'scheduler/host_manager':           value => $scheduler_host_manager;
     'scheduler/max_attempts':           value => $scheduler_max_attempts;
     'scheduler/periodic_task_interval': value => $periodic_task_interval;
   }
@@ -247,7 +240,6 @@ class nova::scheduler::filter (
 
   # TODO(aschultz): old options, remove in P
   nova_config {
-    'DEFAULT/scheduler_host_manager':              ensure => 'absent';
     'DEFAULT/scheduler_max_attempts':              ensure => 'absent';
     'DEFAULT/scheduler_host_subset_size':          ensure => 'absent';
     'DEFAULT/max_io_ops_per_host':                 ensure => 'absent';
