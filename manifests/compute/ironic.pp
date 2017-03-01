@@ -14,6 +14,14 @@
 #
 class nova::compute::ironic (
   $max_concurrent_builds = $::os_service_default,
+  # DEPRECATED PARAMETERS
+  $admin_username        = undef,
+  $admin_password        = undef,
+  $admin_url             = undef,
+  $admin_tenant_name     = undef,
+  $api_endpoint          = undef,
+  $admin_user            = undef,
+  $admin_passwd          = undef,
   $compute_driver        = 'ironic.IronicDriver'
 ) {
 
